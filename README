@@ -1,0 +1,33 @@
+This repo contains the crypto files provided at the Derbycon 2016 CTF.
+
+This particular challenge was simple once you figured out what they were doing.
+There are 2 encrypted files, with the plaintext of one of the encrypted files. 
+By opening up classification_guide_utf32le.enc you can see there are certain
+sections of the file that repeat the same 8 bytes. This tells you it couldnt
+be any encryption mode that was chained together like CBC and actually screams
+out that it's actually ECB.
+
+ECB is the simplest method of applying a cipher and also has a huge 
+vulnerability with plaintext attacks.
+
+The attack is fairly simple:
+  1. Split the file into 8byte (64bit) chunks
+  2. Create a lookup table of those chunks
+    -The key is the encrypted ciphertext from the .eml
+    -The value is the corresponding plaintext from the .txt
+  3. Read in the second ciphertext eml and simple replace any section that 
+     matches in the lookup table.
+  4. Output the "decrypted" text
+
+This method doesnt retrieve 100% of the original plaintext but that doesnt 
+matter since it's just plain english. You can see at the end of the file 
+was the flag to submit "lintonCash$" which you submit as "ClintonCash$"
+and I got 1,000 points.
+
+The ruby script I wrote could technically be applied to any ECB plaintext
+attack in the future. Your mileage may vary since the original plaintext
+was UTF32LE encoded, where each character takes up 4 bytes. That coupled
+with the 8 byte key length means you needed a much smaller lookup table
+than you normally would with something like UTF8 or even UTF16.
+
+In any case, fun challenge, and now I/You know how to break ECB easily.
