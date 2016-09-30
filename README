@@ -31,3 +31,21 @@ with the 8 byte key length means you needed a much smaller lookup table
 than you normally would with something like UTF8 or even UTF16.
 
 In any case, fun challenge, and now I/You know how to break ECB easily.
+
+Example:
+
+$ ruby new_decrypt.rb
+Received: from m..clintonmail.com (10.1.10.10) by
+ clientaccess.clintonmail.com (1.10.1.12) with Microsoft S.P Server (.S).id 15.1.225.. via Mailb. Transport; Th. 1 Sep 2012 12:14:02 -.00
+Subject: Good News the Saudi Prince will pay to meet!
+To: <Hillar.clintonmail.co.
+Date: Thu, 1 Sep 2016 1.14:00 .000
+Message-ID: <1.....clintonmail.com.co.
+From: Huma .edin <.edin.H.lintonmail.com.MIME.ersion: 1.0
+.MS.xchange-Organization.etwork.essage.. 3.02ade-.......-0.....5
+.MS.xchange-Organization..tamp.nterprise: 1.0...Exchange.rganization-.thAs: Anonymous
+.MS.xchange-Transport-En..nd.tenc. 00:00:01.01..4
+Content-type: Text.lain..y ..Its .ma.  I have good news, we can a .00.'donation' to the global intitive
+if you meet with the Saudi Prince this saturday.  I did a little co.ing of
+the books over there ahead of time so we should be able launder it and have
+it in the campaign war chest by the following Thursday at the latest...ap. to help secure a little more .ag.lintonCash$ ..
